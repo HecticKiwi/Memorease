@@ -1,0 +1,55 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id String @id
+
+  email     String @unique
+  username  String
+  avatarUrl String
+
+  sessions      Session[]
+  flashcardSets FlashcardSet[]
+}
+
+model Session {
+  id String @id
+
+  userId    String
+  expiresAt DateTime
+
+  user User @relation(references: [id], fields: [userId], onDelete: Cascade)
+}
+
+model FlashcardSet {
+  id Int @id @default(autoincrement())
+
+  title       String
+  description String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  cards Flashcard[]
+
+  authorId String
+  author   User   @relation(references: [id], fields: [authorId], onDelete: Cascade)
+}
+
+model Flashcard {
+  id String @id
+
+  question String
+  answer   String
+  position Int
+
+  setId Int
+  set   FlashcardSet @relation(fields: [setId], references: [id], onDelete: Cascade)
+}
