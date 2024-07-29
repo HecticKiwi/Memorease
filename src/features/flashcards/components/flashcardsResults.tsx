@@ -60,7 +60,7 @@ function FlashcardsResults({
         />
         <h2 className="text-3xl font-bold">{message}</h2>
 
-        <div className="mt-6 grid grid-cols-2 gap-12">
+        <div className="mt-6 grid gap-12 md:grid-cols-2">
           <div>
             <div className="text-lg font-semibold">How you're doing</div>
 

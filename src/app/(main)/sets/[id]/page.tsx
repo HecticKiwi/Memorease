@@ -9,7 +9,7 @@ import Flashcards from "@/features/flashcards/components/flashcards";
 import prisma from "@/lib/prisma";
 import { formatDistanceToNow } from "date-fns";
 import { Edit2 } from "lucide-react";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
@@ -20,7 +20,7 @@ async function EditPage({ params: { id } }: { params: { id: string } }) {
     redirect("/");
   }
 
-  const flashcardSet = await prisma.flashcardSet.findUniqueOrThrow({
+  const flashcardSet = await prisma.flashcardSet.findFirst({
     where: {
       id: Number(id),
     },
@@ -29,6 +29,10 @@ async function EditPage({ params: { id } }: { params: { id: string } }) {
       author: true,
     },
   });
+
+  if (!flashcardSet) {
+    notFound();
+  }
 
   return (
     <div className="p-4 py-8 md:p-8">

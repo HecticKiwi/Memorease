@@ -16,7 +16,7 @@ function Flashcard({ flashcard }: { flashcard: FlashcardItem }) {
           showAnswer && "[transform:rotateX(180deg)]",
         )}
       >
-        <div className="grid h-full place-content-center text-3xl [backface-visibility:hidden]">
+        <div className="grid h-full place-content-center text-3xl [backface-visibility:hidden] [transform:rotateX(0deg)]">
           {flashcard.question}
         </div>
         <div className="absolute inset-0 grid h-full place-content-center text-3xl [backface-visibility:hidden] [transform:rotateX(-180deg)]">

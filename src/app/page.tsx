@@ -1,7 +1,15 @@
 import LoginCard from "@/features/user/loginCard";
+import { validateRequest } from "@/lib/auth";
 import { Check } from "lucide-react";
+import { redirect } from "next/navigation";
 
 export default async function Page() {
+  const { user } = await validateRequest();
+
+  if (user) {
+    redirect("/sets");
+  }
+
   return (
     <>
       <div className="flex min-h-[100dvh]">

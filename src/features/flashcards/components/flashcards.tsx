@@ -128,9 +128,10 @@ function Flashcards({
 
         {trackProgress && (
           <>
-            <div className="flex max-w-[100px] items-center justify-between md:max-w-[200px]">
+            <div className="-order-1 col-span-2 flex items-center justify-between gap-10 sm:-order-none sm:col-span-1 sm:gap-0">
               <Tooltip content="Still learning">
                 <Button
+                  className="w-full sm:w-10"
                   variant={"outline"}
                   size={"icon"}
                   onClick={() => {
@@ -148,12 +149,13 @@ function Flashcards({
                 </Button>
               </Tooltip>
 
-              <span className="">
+              <span className="min-w-fit">
                 {flashcardRecords.length + 1} / {flashcardSubset.length}
               </span>
 
               <Tooltip content="Know">
                 <Button
+                  className="w-full sm:w-10"
                   variant={"outline"}
                   size={"icon"}
                   onClick={() => {
@@ -207,8 +209,9 @@ function Flashcards({
 
         {!trackProgress && (
           <>
-            <div className="-order-1 col-span-2 flex items-center justify-between sm:-order-none sm:col-span-1">
+            <div className="-order-1 col-span-2 flex items-center justify-between gap-10 sm:-order-none sm:col-span-1 sm:gap-0">
               <Button
+                className="w-full sm:w-10"
                 variant={"outline"}
                 size={"icon"}
                 disabled={flashcardRecords.length === 0}
@@ -223,11 +226,12 @@ function Flashcards({
                 <ArrowLeft />
               </Button>
 
-              <span className="">
+              <span className="min-w-fit">
                 {flashcardRecords.length + 1} / {flashcards.length}
               </span>
 
               <Button
+                className="w-full sm:w-10"
                 variant={"outline"}
                 size={"icon"}
                 onClick={() => {
