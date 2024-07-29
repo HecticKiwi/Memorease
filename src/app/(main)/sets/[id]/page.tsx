@@ -91,8 +91,8 @@ async function EditPage({ params: { id } }: { params: { id: string } }) {
         <div className="space-y-4">
           {flashcardSet.cards.map((card) => (
             <div key={card.id} className="flex rounded-lg border p-8">
-              <div className="mr-12 w-1/3 border-r">{card.question}</div>
-              <div className="w-2/3">{card.answer}</div>
+              <div className="mr-12 w-5/12 border-r pr-12">{card.question}</div>
+              <div className="w-7/12">{card.answer}</div>
             </div>
           ))}
         </div>
