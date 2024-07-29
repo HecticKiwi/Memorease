@@ -128,8 +128,6 @@ export async function upsertFlashcardSet({
 }
 
 export async function deleteFlashcardSet(flashcardSetId: number) {
-  console.log("s");
-
   const { user } = await validateRequest();
 
   if (!user) {

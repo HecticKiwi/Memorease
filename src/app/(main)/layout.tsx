@@ -10,8 +10,6 @@ async function MainLayout({ children }: { children: ReactNode }) {
   const { user } = await validateRequest();
 
   if (!user) {
-    console.log("s");
-
     redirect("/");
   }
 

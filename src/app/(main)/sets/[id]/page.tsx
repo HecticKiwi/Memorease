@@ -59,26 +59,23 @@ async function EditPage({ params: { id } }: { params: { id: string } }) {
             </div>
           </div>
 
-          {user?.id === flashcardSet.authorId && (
-            <>
-              <Tooltip content="Edit">
-                <Button
-                  variant={"outline"}
-                  size={"icon"}
-                  className="ml-auto"
-                  asChild
-                >
-                  <Link href={`/sets/${flashcardSet.id}/edit`}>
-                    <Edit2 className="h-5 w-5" />
-                  </Link>
-                </Button>
-              </Tooltip>
+          <div className="ml-auto">
+            {user?.id === flashcardSet.authorId && (
+              <>
+                <Tooltip content="Edit">
+                  <Button variant={"outline"} size={"icon"} asChild>
+                    <Link href={`/sets/${flashcardSet.id}/edit`}>
+                      <Edit2 className="h-5 w-5" />
+                    </Link>
+                  </Button>
+                </Tooltip>
 
-              <DeleteSetButton flashcardSetId={Number(id)} />
-            </>
-          )}
+                <DeleteSetButton flashcardSetId={Number(id)} />
+              </>
+            )}
 
-          <ExportButton flashcards={flashcardSet.cards} />
+            <ExportButton flashcards={flashcardSet.cards} />
+          </div>
         </div>
 
         {flashcardSet.description && (
