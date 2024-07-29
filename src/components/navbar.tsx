@@ -79,7 +79,7 @@ async function Navbar() {
           <DropdownMenuSeparator />
 
           <DropdownMenuItem className="flex gap-2" asChild>
-            <Link href={"/logout"}>
+            <Link href={"/logout"} prefetch={false}>
               <span>Log out</span>
             </Link>
           </DropdownMenuItem>
