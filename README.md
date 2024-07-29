@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Memorease
+**Simple but powerful flashcard app**
 
-## Getting Started
+A full-stack web application, which replicates the basic features of Quizlet. It's fairly basic as it was only done to reinforce what I've learned. Users can:
 
-First, run the development server:
+- Sign in through OAuth (Google/GitHub)
+- Create, edit, and delete flashcard sets
+- Drag and drop to reorder flashcards
+- Study by marking flashcards as "Know" or "Still learning"; only revisit "Still learning" cards
+- Randomize the flashcard order
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+View the site [here](https://hk-memorease.vercel.app/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Tools used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+I used Next JS as the overarching framework.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### Frontend
+-  Tailwind and ShadCN for styling
+-  React Query for infinite scrolling
+-  React Hook Form + Zod for forms & validation
+-  Dnd Kit for the drag & drop functionality
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Backend
+-  Prisma for the postgres ORM
+-  Lucia for authentication
